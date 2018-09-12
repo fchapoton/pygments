@@ -223,8 +223,7 @@ class RstLexer(RegexLexer):
             # Comments
             (r'^ *\.\..*(\n( +.*\n|\n)+)?', Comment.Preproc),
             # Field list
-            (r'^( *)(:[a-zA-Z-]+:)(\s*)$', bygroups(Text, Name.Class, Text)),
-            (r'^( *)(:.*?:)([ \t]+)(.*?)$',
+            (r'^( *)(:(?:\\\\|\\:|[^:\n])+:(?=\s))([ \t]*)(((\n\s*\1[ \t]+)?.+?$)*)',
              bygroups(Text, Name.Class, Text, Name.Function)),
             # Definition list
             (r'^(\S.*(?<!::)\n)((?:(?: +.*)\n)+)',
