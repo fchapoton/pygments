@@ -10,13 +10,12 @@
     :license: BSD, see LICENSE for details.
 """
 
-import re
-from re import escape
+from re import escape, compile
 from os.path import commonprefix
 from itertools import groupby
 from operator import itemgetter
 
-CS_ESCAPE = re.compile(r'[\^\\\-\]]')
+CS_ESCAPE = compile(r'[\^\\\-\]]')
 FIRST_ELEMENT = itemgetter(0)
 
 
